@@ -42,9 +42,32 @@
 #         category = "High"
 # print(f"The score is {score} is categorized as {category}")
 
-count = 0
-while count < 3:
-    print("Hello, world!")
+# count = 0
+# while count < 3:
+#     print("Hello, world!")
    
-    count+=1  # count = count +1
+#     count+=1  # count = count +1
 
+text_to_morse_code = {
+    'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....', 
+    'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 
+    'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 
+    'Y': '-.--', 'Z': '--..',
+    '0': '-----', '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....', 
+    '6': '-....', '7': '--...', '8': '---..', '9': '----.',
+    '.': '.-.-.-', ',': '--..--', '?': '..--..', "'": '.----.', '!': '-.-.--', '/': '-..-.', 
+    '(': '-.--.', ')': '-.--.-', '&': '.-...', ':': '---...', ';': '-.-.-.', '=': '-...-', 
+    '+': '.-.-.', '-': '-....-', '_': '..--.-', '"': '.-..-.', '$': '...-..-', '@': '.--.-.'
+}
+
+user_text = input("Type a sentence or a word you'd like to translate: ").upper()
+
+translated_text = ''
+
+for char in user_text:
+    if char in text_to_morse_code:
+        translated_text += text_to_morse_code[char] + ' '
+    elif char == ' ':
+        translated_text += '  '  # To denote space between words
+
+print(translated_text)
